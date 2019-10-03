@@ -22,4 +22,13 @@ public interface QgUserService {
 
     public Integer qdtxBatchDeleteQgUser(String ids)throws Exception;
 
+    /**
+     * 根据手机号和密码查询用户信息
+     * @param phone
+     * @param pwd
+     * @return
+     * @throws Exception
+     */
+    public QgUser queryQgUserByPhoneAndPwd(String phone,String pwd) throws Exception;
+
 }
