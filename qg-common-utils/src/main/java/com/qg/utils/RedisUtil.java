@@ -7,6 +7,7 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 @Component
 public class RedisUtil {
@@ -39,6 +40,16 @@ public class RedisUtil {
      */
     public void setStr(String key, String val){
         valOpsStr.set(key,val);
+    }
+
+    /**
+     * 设置Str缓存
+     * @param key
+     * @param val
+     * @param expire 过期时间
+     */
+    public void setStr(String key, String val,Long expire){
+        valOpsStr.set(key,val,expire, TimeUnit.MINUTES);
     }
 
     /**
